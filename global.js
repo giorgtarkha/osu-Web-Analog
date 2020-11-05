@@ -1,7 +1,17 @@
 let svg_path = "http://www.w3.org/2000/svg";
+let skin_path_name = "skin/";
 let mouse_x = 0, mouse_y = 0;
 let click_button_one = "x";
-let click_button_second = "y";
+let click_button_second = "z";
+
+let successful_click_audio_file_name = skin_path_name + "hit.wav";
+let cursor_image_file_name = skin_path_name + "cursor.png";
+let cursor_trail_image_file_name = skin_path_name + "/cursortrail.png";
+
+let successful_click_audio;
+let song_audio;
+
+let cursor;
 
 let radius = 40;
 let outline_radius_addition = 60;
@@ -35,6 +45,10 @@ let destroy_function_name = "destroy_circle_size_function";
 
 let shaky_circle_class_name = "shaky_circle";
 
+let cursor_name = "cursor";
+let cursor_image_offset;
+let cursor_fixed;
+let cursor_has_trail;
 
 window.onload = () => {
 	game_screen = document.getElementById("game-screen");
@@ -46,10 +60,27 @@ window.onload = () => {
 	window.addEventListener("mousemove", (e) => {
 		mouse_x = e.pageX;
 		mouse_y = e.pageY;
+		cursor.style.left = mouse_x - cursor_image_offset;
+		cursor.style.top = mouse_y - cursor_image_offset;
 	});
+	init_audio();
+	init_cursor();
 };
 
 let reset = () => {
 	last_object_id = 0;
 	object_functions = {};
 };
+
+let init_audio = () => {
+	successful_click_audio = new Audio(successful_click_audio_file_name);
+	successful_click_audio.volume = 0.05;
+}
+
+let init_cursor = () => {
+	cursor = document.getElementById("cursor");
+	cursor.onload = () => {
+		cursor_image_offset = cursor.width / 2;
+	}
+	cursor.src = cursor_image_file_name;
+}

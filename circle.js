@@ -34,7 +34,7 @@ let create_circle_internal = (x, y, r) => {
 		let radius_now = parseInt(outline.getAttributeNS(null, 'r'));
 		outline.setAttributeNS(null, 'r', radius_now - outline_radius_decrease);
 		if (radius_now < r - miss_point) {
-			destroy_circle_internal(circle, outline, current_object_id, null);
+			destroy_circle_internal(circle, outline, current_object_id, true);
 			clearInterval(object_functions[current_object_id][outline_function_name]);
 		}
 	}, outline_radius_decrease_rate);
@@ -82,6 +82,12 @@ let try_to_destroy_circle = (circle) => {
 }
 
 let destroy_circle_internal = (circle, outline, id, miss) => {
+	if (miss) {
+	} else {
+		successful_click_audio.pause();
+		successful_click_audio.currentTime = 0;
+		successful_click_audio.play();
+	}
 	object_functions[id][destroy_function_name] = setInterval(() => {
 		let opacity_now_circle = circle.style.opacity;
 		circle.style.opacity = Math.max(0, parseFloat(opacity_now_circle) - destroy_opacity_decrease);
