@@ -9,6 +9,16 @@ html, body, svg {
   overflow:hidden;
 }
 
+svg {
+	z-index: 0;
+}
+
 #game-screen {
 	background-color: black;
+}
+
+.hidden {
+	visibility: hidden;
+	width: 0%;
+	height: 0%;
 }

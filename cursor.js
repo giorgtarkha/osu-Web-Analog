@@ -5,9 +5,8 @@ let trail_particle_diff_speed = 0.8;
 let cursor;
 let trail_image_offset;
 
-
 let init_cursor = () => {
-	cursor = document.getElementById("cursor");
+	cursor = document.getElementById(cursor_object_name);
 	cursor.onload = () => {
 		cursor_image_offset = cursor.width / 2;
 		window.addEventListener("mousemove", (e) => {
@@ -52,7 +51,7 @@ let create_trail_particle = (num) => {
 		trail_particle.width = trail_particle.width - num * trail_particle_size_diff;
 	}
 	trail_particle.src = cursor_trail_image_file_name;
-	trail_particle.classList.add("cursor_particle");
+	trail_particle.classList.add(cursor_particle_class_name);
 	document.body.insertBefore(trail_particle, game_screen);
 	return trail_particle;
 }

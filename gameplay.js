@@ -2,12 +2,12 @@ let early_click_point = 20;
 let fifty_click_point = 15;
 let hundred_click_point = 10;
 let three_hundred_click_point = 0;
-let miss_point = 0;
-let mouse_x = 0, mouse_y = 0;
+let miss_point = 5;
 let destroyed_objects = new Set();
 let last_object_id = 0;
+let score = 0;
 
-let game_screen;
+let mouse_x, mouse_y;
 
 let handleClick = (x, y) => {
 	let elements = document.elementsFromPoint(x, y);
@@ -31,12 +31,14 @@ let handleClick = (x, y) => {
 	}
 	if (current_element != undefined) {
 		if (current_element_object_type == circle_object_prefix) {
-			try_to_destroy_circle(current_element);
+			let response = try_to_destroy_circle(current_element);
 		}
 	}
 };
 
 let reset_game = () => {
 	last_object_id = 0;
-	object_functions = {};
+	score = 0;
+	game_object_functions = {};
+	destroyed_objects = new Set();
 };

@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="circle.css"/>
 		<link rel="stylesheet" href="cursor.css"/>
 		<script src="global.js"></script>
+		<script src="scene_manager.js"></script>
 		<script src="settings.js"></script>
 		<script src="skin.js"></script>
 		<script src="cursor.js"></script>
@@ -14,15 +15,7 @@
 	</head>
 	<body>
 		<img id="cursor"></img>
-		<svg id="game-screen"></svg>
-		<script>
-			setTimeout(() => { spawn_circle(100, 100) }, 2000);
-			setTimeout(() => { spawn_circle(200, 120) }, 2100);
-			setTimeout(() => { spawn_circle(300, 140) }, 4000);
-			setTimeout(() => { spawn_circle(400, 160) }, 5000);
-			setTimeout(() => { spawn_circle(500, 180) }, 6000);
-			setTimeout(() => { spawn_circle(600, 200) }, 7000);
-			setTimeout(() => { spawn_circle(700, 220) }, 8000);
-		</script>
+		<svg id="game-screen" class="hidden"></svg>
+		<div id="main-menu-screen" class="hidden"><button>HAHA</button></div>
 	</body>
 </html>
