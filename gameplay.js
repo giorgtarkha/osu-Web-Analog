@@ -1,3 +1,11 @@
+let current_scene = "main_menu";
+let mouse_x = 0, mouse_y = 0;
+let object_functions = {};
+let destroyed_objects = new Set();
+let last_object_id = 0;
+
+let game_screen;
+
 let handleClick = (x, y) => {
 	let elements = document.elementsFromPoint(x, y);
 	let current_element = null;
@@ -23,4 +31,9 @@ let handleClick = (x, y) => {
 			try_to_destroy_circle(current_element);
 		}
 	}
+};
+
+let reset_game = () => {
+	last_object_id = 0;
+	object_functions = {};
 };
