@@ -1,6 +1,9 @@
-let current_scene = "main_menu";
+let early_click_point = 20;
+let fifty_click_point = 15;
+let hundred_click_point = 10;
+let three_hundred_click_point = 0;
+let miss_point = 0;
 let mouse_x = 0, mouse_y = 0;
-let object_functions = {};
 let destroyed_objects = new Set();
 let last_object_id = 0;
 

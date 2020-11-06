@@ -1,3 +1,13 @@
+let radius = 40;
+let outline_radius_addition = 60;
+let outline_radius_decrease = 1;
+let outline_radius_decrease_rate = 20;
+let opacity_increase = 0.04;
+let opacity_increase_rate = 20;
+let destroy_opacity_decrease = 0.1;
+let destroy_opacity_decrease_rate = 20;
+let destroy_radius_increase = 2;
+
 let spawn_circle = (x, y) => {	
 	create_circle_internal(x, y, radius);
 }

@@ -1,0 +1,1 @@
+let current_scene = "main_menu";
