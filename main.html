@@ -1,21 +1,27 @@
 <html>
 	<head>
 		<title>osu! analog</title>
-		<link rel="stylesheet" href="main.css"/>
-		<link rel="stylesheet" href="circle.css"/>
-		<link rel="stylesheet" href="cursor.css"/>
-		<script src="global.js"></script>
-		<script src="scene_manager.js"></script>
-		<script src="settings.js"></script>
-		<script src="skin.js"></script>
-		<script src="cursor.js"></script>
-		<script src="audio.js"></script>
-		<script src="circle.js"></script>
-		<script src="gameplay.js"></script>
+		<link rel="stylesheet" href="css/main.css"/>
+		<link rel="stylesheet" href="css/circle.css"/>
+		<link rel="stylesheet" href="css/cursor.css"/>
+		<script src="js/global.js"></script>
+		<script src="js/scene_manager.js"></script>
+		<script src="js/song.js"></script>
+		<script src="js/settings.js"></script>
+		<script src="js/skin.js"></script>
+		<script src="js/cursor.js"></script>
+		<script src="js/audio.js"></script>
+		<script src="js/circle.js"></script>
+		<script src="js/gameplay.js"></script>
 	</head>
 	<body>
+		<audio id="song-player"></audio>
 		<img id="cursor"></img>
 		<svg id="game-screen" class="hidden"></svg>
-		<div id="main-menu-screen" class="hidden"><button>HAHA</button></div>
+		<div id="main-menu-screen" class="hidden">
+			<div id="main-menu-playbar">
+				
+			</div>
+		</div>
 	</body>
 </html>
