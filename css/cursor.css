@@ -1,17 +1,36 @@
-.cursor_particle {
-	position: absolute;
-	z-index: 999999;
-	pointer-events: none; 
-}
-
-#cursor {
-	position: absolute;
+.cursor_particle {	
 	user-drag: none; 
 	user-select: none;
 	-moz-user-select: none;
 	-webkit-user-drag: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
+	position: absolute;
+	z-index: 999999;
+	pointer-events: none; 
+}
+
+#cursor {
+	user-drag: none; 
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	position: absolute;
 	z-index: 1000000;
 	pointer-events: none; 
+}
+
+.non_fixed_cursor_animation {
+	animation: click_size_change 0.1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes click_size_change {
+	0%   { transform: scale(1, 1);     }
+	25%  { transform: scale(1.2, 1.2); }
+	50%  { transform: scale(1.4, 1.4)  }
+	75%  { transform: scale(1.2, 1.2); }
+	100% { transform: scale(1, 1);     }
 }

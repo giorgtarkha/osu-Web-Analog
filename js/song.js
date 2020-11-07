@@ -11,8 +11,12 @@ let init_song_player = () => {
 	song_player = document.getElementById("song-player");
 }
 
-let change_song = () => {
-	current_song = song_names[get_random_song_index()];
+let play_random_song = () => {
+	play_song(song_names[get_random_song_index()]);
+}
+
+let play_song = (song_name) => {
+	current_song = song_name;
 	song_player.src = songs_path + current_song + "/" + song_file_name;
 	song_player.volume = song_volume;
 	song_player.play();

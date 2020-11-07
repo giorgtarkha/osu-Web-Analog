@@ -55,3 +55,12 @@ let create_trail_particle = (num) => {
 	document.body.insertBefore(trail_particle, game_screen);
 	return trail_particle;
 }
+
+let play_non_fixed_cursor_animation = () => {
+	cursor.classList.remove(non_fixed_cursor_animation_class_name);
+	cursor.classList.add(non_fixed_cursor_animation_class_name);
+	if (object_functions[cursor_object_name][non_fixed_cursor_animation_function_name] != undefined) {
+		clearTimeout(object_functions[cursor_object_name][non_fixed_cursor_animation_function_name]);
+	}
+	object_functions[cursor_object_name][non_fixed_cursor_animation_function_name] = setTimeout(() => { cursor.classList.remove(non_fixed_cursor_animation_class_name); }, 110);
+}

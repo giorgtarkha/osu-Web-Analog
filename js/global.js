@@ -11,10 +11,12 @@ let shake_function_name = "shake_function";
 let destroy_opacity_function_name = "destroy_opacity_function";
 let destroy_function_name = "destroy_circle_size_function";
 let cursor_trail_animation_function_name = "cursor_trail_animation_function";
+let non_fixed_cursor_animation_function_name = "non_fixed_cursor_animation_function";
 
 let shaky_circle_class_name = "shaky_circle";
 let hidden_class_name = "hidden";
 let cursor_particle_class_name = "cursor_particle";
+let non_fixed_cursor_animation_class_name = "non_fixed_cursor_animation";
 
 let game_object_functions = {};
 let object_functions = {};
@@ -28,6 +30,19 @@ window.onload = () => {
 				handleClick(mouse_x, mouse_y);
 			}
 		}
+	});
+	window.addEventListener("click", (e) => {
+		if (current_scene == playing_game_scene) {
+			handleClick(mouse_x, mouse_y);
+		}
+		play_non_fixed_cursor_animation();
+	});
+	window.addEventListener("contextmenu", (e) => {
+		if (current_scene == playing_game_scene) {
+			handleClick(mouse_x, mouse_y);
+		}
+		play_non_fixed_cursor_animation();
+		e.preventDefault();
 	});
 	init_audio();
 	init_cursor();

@@ -10,6 +10,9 @@ let score = 0;
 let mouse_x, mouse_y;
 
 let handleClick = (x, y) => {
+	if (!cursor_fixed) {
+		play_non_fixed_cursor_animation();
+	}
 	let elements = document.elementsFromPoint(x, y);
 	let current_element = null;
 	let current_element_object_id = null;
