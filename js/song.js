@@ -30,8 +30,7 @@ let play_song = (song_name) => {
 	song_progress_bar.max = song_player.duration;
 	song_progress_bar.value = "0";
 	if (object_functions[main_song_player_object_name][main_song_player_progress_update_function_name] != undefined) {
-		clearInterval(object_functions[main_song_player_object_name][main_song_player_progress_update_function_name]);
-		
+		clearInterval(object_functions[main_song_player_object_name][main_song_player_progress_update_function_name]);	
 	}
 	object_functions[main_song_player_object_name][main_song_player_progress_update_function_name] = setInterval(update_playing_song_progress, 500);
 	
@@ -52,10 +51,15 @@ let stop_song = () => {
 }
 
 let change_playing_song_progress = () => {
+	if (object_functions[main_song_player_object_name][main_song_player_progress_update_function_name] != undefined) {
+		clearInterval(object_functions[main_song_player_object_name][main_song_player_progress_update_function_name]);	
+	}
 	song_player.currentTime = song_progress_bar.value;
+	object_functions[main_song_player_object_name][main_song_player_progress_update_function_name] = setInterval(update_playing_song_progress, 500);
 }
 
 let update_playing_song_progress = () => {
+	song_progress_bar.max = song_player.duration;
 	song_progress_bar.value = song_player.currentTime;
 }
 
