@@ -1,5 +1,7 @@
 let svg_path = "http://www.w3.org/2000/svg";
 
+let main_song_player_object_name = "main_song_player";
+
 let cursor_object_name = "cursor";
 
 let circle_object_prefix = "circle";
@@ -12,6 +14,7 @@ let destroy_opacity_function_name = "destroy_opacity_function";
 let destroy_function_name = "destroy_circle_size_function";
 let cursor_trail_animation_function_name = "cursor_trail_animation_function";
 let non_fixed_cursor_animation_function_name = "non_fixed_cursor_animation_function";
+let main_song_player_progress_update_function_name = "main_song_player_progress_update_function";
 
 let shaky_circle_class_name = "shaky_circle";
 let hidden_class_name = "hidden";
@@ -41,7 +44,6 @@ window.onload = () => {
 		if (current_scene == playing_game_scene) {
 			handleClick(mouse_x, mouse_y);
 		}
-		play_non_fixed_cursor_animation();
 		e.preventDefault();
 	});
 	init_audio();
@@ -52,4 +54,5 @@ window.onload = () => {
 
 let init_object_functions = () => {
 	object_functions[cursor_object_name] = {};
+	object_functions[main_song_player_object_name] = {};
 };

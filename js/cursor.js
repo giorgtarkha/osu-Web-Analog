@@ -1,5 +1,5 @@
 let trail_particles = [];
-let trail_particle_diff_speed = 0.6;
+let trail_particle_diff_speed = 0.7;
 
 let cursor;
 let trail_image_offset;
