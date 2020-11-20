@@ -1,12 +1,14 @@
 * {
 	cursor: none;
+	font-family: 'Alatsi';
+	letter-spacing: 2px;
 }
 
 html, body, svg {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	overflow:hidden;
+	overflow: hidden;
 }
 
 svg {
@@ -19,10 +21,70 @@ svg {
 	height: 0%;
 }
 
-#main-menu-player {
-	
+#main-menu-player-song-name {
+	position: absolute;
+	top: 10;
+	left: 10;
+	z-index: 11;
+	font-weight: 600;
+	color: white;
+	-webkit-user-select: none;     
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-#main-menu-player-progress-bar {
-	
+#main-menu-screen {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#main-menu-buttons-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: stretch
+}
+
+#main-menu-buttons-container > button {
+	width: 100%;
+	height: 20%;
+	color: white;
+	font-size: 4vw;
+	font-weight: 600;
+	border: none;
+    outline: none;
+	-webkit-user-select: none;     
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#main-menu-play-button {
+	background-color: #81ff83; 
+}
+
+#main-menu-settings-button {
+	background-color: #5cc6ff;
+}
+
+#main-menu-exit-button {
+	background-color: #ff5f5f;
+}
+
+#main-menu-play-button:hover {
+	background-color: #72e474; 
+}
+
+#main-menu-settings-button:hover {
+	background-color: #51b1e4;
+}
+
+#main-menu-exit-button:hover {
+	background-color: #e05353;
 }

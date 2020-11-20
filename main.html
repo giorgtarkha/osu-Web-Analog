@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>osu! analog</title>
+		<link href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet'>
 		<link rel="stylesheet" href="css/main.css"/>
 		<link rel="stylesheet" href="css/circle.css"/>
 		<link rel="stylesheet" href="css/cursor.css"/>
@@ -20,8 +21,12 @@
 		<svg id="game-screen" class="hidden"></svg>
 		<div id="main-menu-screen" class="hidden">
 			<div id="main-menu-player">
-				<div class="main-menu-player-song-name">est</div>
-				<input type="range" id="main-menu-player-progress-bar" value="0" onchange="change_playing_song_progress()"/>
+				<div id="main-menu-player-song-name"></div>
+			</div>
+			<div id="main-menu-buttons-container" align="center">
+				<button id="main-menu-play-button">PLAY</button> 
+				<button id="main-menu-settings-button">SETTINGS</button>
+				<button id="main-menu-exit-button">EXIT</button>
 			</div>
 		</div>
 	</body>
