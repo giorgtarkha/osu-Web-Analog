@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="css/cursor.css"/>
 		<script src="js/global.js"></script>
 		<script src="js/scene_manager.js"></script>
+		<script src="js/main_menu.js"></script>
 		<script src="js/song.js"></script>
 		<script src="js/settings.js"></script>
 		<script src="js/skin.js"></script>
@@ -19,9 +20,18 @@
 		<audio id="song-player"></audio>
 		<img id="cursor"></img>
 		<svg id="game-screen" class="hidden"></svg>
+		<div id="initial-screen" class="hidden">
+			<div>
+				<div>Osu Analog</div>
+				<div>Click anywhere to start</div>
+			</div>
+		</div>
 		<div id="main-menu-screen" class="hidden">
 			<div id="main-menu-player">
 				<div id="main-menu-player-song-name"></div>
+				<div id="main-menu-player-previous-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
+				<div id="main-menu-player-pause-song-button" class="hidden"><img src="assets/pause.png"></img></div>
+				<div id="main-menu-player-next-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
 			</div>
 			<div id="main-menu-buttons-container" align="center">
 				<button id="main-menu-play-button">PLAY</button> 

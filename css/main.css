@@ -21,13 +21,136 @@ svg {
 	height: 0%;
 }
 
-#main-menu-player-song-name {
+#initial-screen {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 100;
+	background-color: rgba(255, 255, 255, 0.4);
+	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(20px);  
+}
+
+#initial-screen > div {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-weight: 600;
+	font-size: 4vw;
+	text-align: center;
+}
+
+#initial-screen > div > div:nth-child(2) {
+	font-size: 2vw;
+}
+
+.initial_screen_hiding {
+	animation: hide_initial_screen .45s;
+}
+
+.initial_screen_hiding > div {
+	animation: hide_initial_screen_text .45s;
+}
+
+.initial_screen_showing {
+	animation: show_initial_screen .45s;
+}
+
+.initial_screen_showing > div {
+	animation: show_initial_screen_text .45s;
+}
+
+@keyframes hide_initial_screen {
+	0%   { background-color: rgba(255, 255, 255, 0.4); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
+	25%  { background-color: rgba(255, 255, 255, 0.3); -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); }
+	50%  { background-color: rgba(255, 255, 255, 0.2); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+	75%  { background-color: rgba(255, 255, 255, 0.1); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+	100% { background-color: rgba(255, 255, 255, 0.0); -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px); }
+}
+
+@keyframes hide_initial_screen_text {
+	0%   { color: rgba(255, 255, 255, 1);   }
+	25%  { color: rgba(255, 255, 255, 0.8); }
+	50%  { color: rgba(255, 255, 255, 0.6); }
+	75%  { color: rgba(255, 255, 255, 0.4); }
+	100% { color: rgba(255, 255, 255, 0.2); }
+}
+
+@keyframes show_initial_screen {
+	0% { background-color: rgba(255, 255, 255, 0.0); -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px); }
+	25%  { background-color: rgba(255, 255, 255, 0.1); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+	50%  { background-color: rgba(255, 255, 255, 0.2); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+	75%  { background-color: rgba(255, 255, 255, 0.3); -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px); }
+	100%   { background-color: rgba(255, 255, 255, 0.4); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
+}
+
+@keyframes show_initial_screen_text {
+	0% { color: rgba(255, 255, 255, 0.2); }
+	25%  { color: rgba(255, 255, 255, 0.4); }
+	50%  { color: rgba(255, 255, 255, 0.6); }
+	75%  { color: rgba(255, 255, 255, 0.8); }
+	100%   { color: rgba(255, 255, 255, 1);   }
+}
+
+#main-menu-player {
 	position: absolute;
 	top: 10;
 	left: 10;
 	z-index: 11;
+	color: white;
+}
+
+#main-menu-player > div {
+	margin-left: 10px;
+	vertical-align: middle;
+	-webkit-user-select: none;     
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#main-menu-player > div > img {
+	width: 30px;
+	transition: transform .2s;
+	-webkit-user-select: none;     
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#main-menu-player > div > img:hover {
+	filter: brightness(90%);
+	transform: scale(1.2);
+}
+
+#main-menu-player-song-name {
+	display: inline-block;
 	font-weight: 600;
 	color: white;
+	-webkit-user-select: none;     
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#main-menu-player-next-song-button {
+	display: inline-block;
+}
+
+#main-menu-player-previous-song-button {
+	display: inline-block;
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+#main-menu-player-pause-song-button {
+	display: inline-block;
+}
+
+#main-menu-player-pause-song-button > img {
+	width: 27px !important;
 	-webkit-user-select: none;     
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -59,10 +182,15 @@ svg {
 	font-weight: 600;
 	border: none;
     outline: none;
+	transition: transform .2s;
 	-webkit-user-select: none;     
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+#main-menu-buttons-container > button:hover {
+	transform: scale(1.05);
 }
 
 #main-menu-play-button {
