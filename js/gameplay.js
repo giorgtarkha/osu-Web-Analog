@@ -154,4 +154,6 @@ let update_window_size_diff = () => {
 	diff_w = current_width / original_width;
 	diff_h = current_height / original_height;
 	radius = map_data[current_song].radius * (diff_w + diff_h) / 2;
+	outline_radius_addition = map_data[current_song].outline_radius_addition * (diff_w + diff_h) / 2;
+	
 }

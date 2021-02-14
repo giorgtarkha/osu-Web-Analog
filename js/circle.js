@@ -1,7 +1,7 @@
-let radius = 40;
-let outline_radius_addition = 60;
+let radius;
+let outline_radius_addition;
 let outline_radius_decrease = 1;
-let outline_radius_decrease_rate = 20;
+let outline_radius_decrease_rate;
 let opacity_increase = 0.04;
 let opacity_increase_rate = 20;
 let destroy_opacity_decrease = 0.1;
