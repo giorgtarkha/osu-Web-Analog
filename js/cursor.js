@@ -4,7 +4,7 @@ let trail_particle_diff_speed = 0.7;
 let cursor;
 let trail_image_offset;
 
-let init_cursor = () => {
+const init_cursor = () => {
 	cursor = document.getElementById(cursor_object_name);
 	cursor.onload = () => {
 		cursor_image_offset = cursor.width / 2;
@@ -17,7 +17,7 @@ let init_cursor = () => {
 	cursor.src = cursor_image_file_name;
 };
 
-let update_cursor = () => {
+const update_cursor = () => {
 	let real_position_x = mouse_x - cursor_image_offset, real_position_y = mouse_y - cursor_image_offset;
 	cursor.style.left = real_position_x;
 	cursor.style.top = real_position_y;
@@ -31,7 +31,7 @@ let update_cursor = () => {
 	}
 };
 
-let start_trail_animation = () => {
+const start_trail_animation = () => {
 	object_functions[cursor_object_name][cursor_trail_animation_function_name] = setInterval(() => {
 		if (trail_particles.length == 0) {
 			for (let i = 0; i < trail_particle_number; i++) {
@@ -49,7 +49,7 @@ let start_trail_animation = () => {
 	}, 10);
 };
 
-let create_trail_particle = (num) => {
+const create_trail_particle = (num) => {
 	let trail_particle = document.createElement("img");
 	trail_particle.onload = () => {
 		trail_particle.width = trail_particle.width;
@@ -61,7 +61,7 @@ let create_trail_particle = (num) => {
 	return trail_particle;
 }
 
-let play_non_fixed_cursor_animation = () => {
+const play_non_fixed_cursor_animation = () => {
 	cursor.classList.remove(non_fixed_cursor_animation_class_name);
 	cursor.classList.add(non_fixed_cursor_animation_class_name);
 	if (object_functions[cursor_object_name][non_fixed_cursor_animation_function_name] != undefined) {

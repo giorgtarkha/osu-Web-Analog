@@ -2,7 +2,7 @@ let pause_continue_button;
 let pause_exit_button;
 let pause_restart_game_button;
 
-let init_pause = () => {
+const init_pause = () => {
 	pause_continue_button = document.getElementById("continue-game-button");
 	pause_restart_game_button = document.getElementById("pause-restart-game-button");
 	pause_exit_button = document.getElementById("exit-game-button");

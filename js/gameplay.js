@@ -1,9 +1,11 @@
-let early_click_point = 20;
-let fifty_click_point = 15;
-let hundred_click_point = 10;
-let three_hundred_click_point = 0;
-let miss_point = 5;
-let destroyed_objects = new Set();
+const early_click_point = 20;
+const fifty_click_point = 15;
+const hundred_click_point = 10;
+const three_hundred_click_point = 0;
+const miss_point = 5;
+const before_start_time = 1000;
+const destroyed_objects = new Set();
+
 let last_object_id = 0;
 let score = 0;
 let combo = 0;
@@ -12,7 +14,6 @@ let miss_count = 0;
 let three_hundred_count = 0;
 let one_hundred_count = 0;
 let fifty_count = 0;
-let before_start_time = 1000;
 let start_time = 0;
 let time_passed = 0;
 
@@ -25,7 +26,7 @@ let circle_timeout_functions = [];
 let combo_counter;
 let score_counter;
 
-let handleClick = (x, y) => {
+const handleClick = (x, y) => {
 	if (!cursor_fixed) {
 		play_non_fixed_cursor_animation();
 	}
@@ -71,7 +72,7 @@ let handleClick = (x, y) => {
 	}
 };
 
-let init_game = () => {
+const init_game = () => {
 	song_player.pause();
 	update_window_size_diff();
 	outline_radius_addition = map_data[current_song].outline_radius_addition;
@@ -85,7 +86,7 @@ let init_game = () => {
 	}, before_start_time));
 }
 
-let pause_game = () => {
+const pause_game = () => {
 	time_passed += Date.now() - start_time;
 	for (let i = 0; i < circle_timeout_functions.length; i++) {
 		clearTimeout(circle_timeout_functions[i]);
@@ -94,13 +95,13 @@ let pause_game = () => {
 	pause_existing_circles();
 }
 
-let continue_game = () => {
+const continue_game = () => {
 	start_time = Date.now();
 	continue_existing_circles();
 	init_circle_spawns();
 }
 
-let init_circle_spawns = () => {
+const init_circle_spawns = () => {
 	let data = map_data[current_song].flow;
 	for (let i = 0; i < data.length; i++) {
 		if (data[i].time >= time_passed) { 
@@ -111,7 +112,7 @@ let init_circle_spawns = () => {
 	}
 }
 
-let reset_game = () => {
+const reset_game = () => {
 	destroy_existing_circles();
 	last_object_id = 0;
 	score = 0;
@@ -128,37 +129,37 @@ let reset_game = () => {
 	update_counters();
 };
 
-let update_combo_counter = () => {
+const update_combo_counter = () => {
 	combo_counter.innerHTML = combo + "x";
 }
 
-let update_score_counter = () => {
+const update_score_counter = () => {
 	score_counter.innerHTML = "Score: " + score;
 }
 
-let update_counters = () => {
+const update_counters = () => {
 	update_combo_counter();
 	update_score_counter();
 }
 
-let init_gameplay = () => {
+const init_gameplay = () => {
 	combo_counter = document.getElementById("combo-counter");
 	score_counter = document.getElementById("score-counter");
 	update_combo_counter();
 	update_score_counter();
 }
 
-let show_gameplay_ui = () => {
+const show_gameplay_ui = () => {
 	combo_counter.classList.remove(hidden_class_name);
 	score_counter.classList.remove(hidden_class_name);
 }
 
-let hide_gameplay_ui = () => {
+const hide_gameplay_ui = () => {
 	combo_counter.classList.add(hidden_class_name);
 	score_counter.classList.add(hidden_class_name);
 }
 
-let update_window_size_diff = () => {
+const update_window_size_diff = () => {
 	let current_width = window.innerWidth;
 	let current_height = window.innerHeight;
 	let original_width = map_data[current_song].original_screen_width;

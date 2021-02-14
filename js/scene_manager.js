@@ -1,10 +1,10 @@
-let initial_screen_scene = "initial";
-let main_menu_scene = "main_menu";
-let playing_game_scene = "playing_game";
-let pause_game_scene = "pause_game";
-let map_choose_scene = "map_choose";
-let game_result_scene = "game_result";
-let settings_scene = "settings";
+const initial_screen_scene = "initial";
+const main_menu_scene = "main_menu";
+const playing_game_scene = "playing_game";
+const pause_game_scene = "pause_game";
+const map_choose_scene = "map_choose";
+const game_result_scene = "game_result";
+const settings_scene = "settings";
 
 let current_scene = initial_screen_scene;
 
@@ -18,7 +18,7 @@ let game_result_screen;
 
 let scenes;
 
-let load_initial_screen_scene = () => {
+const load_initial_screen_scene = () => {
 	if (current_scene == initial_screen_scene) {
 		load_scenes([main_menu_scene, initial_screen_scene]);
 	} else {
@@ -32,7 +32,7 @@ let load_initial_screen_scene = () => {
 	}
 }
 
-let load_main_menu_scene = () => {
+const load_main_menu_scene = () => {
 	if (current_scene == pause_game_scene   || 
 	    current_scene == playing_game_scene || 
 		current_scene == game_result_scene) {
@@ -59,14 +59,14 @@ let load_main_menu_scene = () => {
 	}
 }
 
-let load_settings_scene = () => {
+const load_settings_scene = () => {
 	if (current_scene == main_menu_scene) {
 		current_scene = settings_scene;
 		load_scenes([settings_scene]);
 	}
 }
 
-let load_map_choose_scene = () => {
+const load_map_choose_scene = () => {
 	if (current_scene == main_menu_scene) {
 		current_scene = map_choose_scene;
 		load_scenes([map_choose_scene]);
@@ -88,7 +88,7 @@ let load_map_choose_scene = () => {
 	}
 }
 
-let load_pause_game_scene = () => {
+const load_pause_game_scene = () => {
 	if (current_scene == playing_game_scene) {
 		current_scene = pause_game_scene;
 		load_scenes([playing_game_scene, pause_game_scene]);
@@ -98,7 +98,7 @@ let load_pause_game_scene = () => {
 	}
 }
 
-let load_start_game_scene = (restart = false) => {
+const load_start_game_scene = (restart = false) => {
 	if (current_scene == map_choose_scene) {
 		current_scene = playing_game_scene;
 		load_scenes([playing_game_scene]);
@@ -125,7 +125,7 @@ let load_start_game_scene = (restart = false) => {
 	}
 }
 
-let load_game_result_scene = () => {
+const load_game_result_scene = () => {
 	if (current_scene == playing_game_scene) {
 		current_scene = game_result_scene;
 		load_scenes([game_result_scene]);
@@ -134,7 +134,7 @@ let load_game_result_scene = () => {
 	}
 }
 
-let load_scenes = (scene_names) => {
+const load_scenes = (scene_names) => {
 	for (const scene_name in scenes) {
 		scenes[scene_name].classList.add(hidden_class_name);
 	}
@@ -143,7 +143,7 @@ let load_scenes = (scene_names) => {
 	});
 }
 
-let init_scenes = () => {
+const init_scenes = () => {
 	initial_screen = document.getElementById("initial-screen");
 	main_menu_screen = document.getElementById("main-menu-screen");
 	game_screen = document.getElementById("game-screen");

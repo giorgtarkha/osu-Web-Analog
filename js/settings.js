@@ -1,9 +1,10 @@
+const cursor_size = 1.0;
+const trail_particle_number = 5;
+
 let click_button_one = "z";
 let click_button_second = "x";
 let cursor_fixed = false;
 let cursor_has_trail = false;
-let cursor_size = 1.0;
-let trail_particle_number = 5;
 
 let trail_setting_checkbox;
 let cursor_fixed_setting_checkbox;
@@ -15,7 +16,7 @@ let song_volume_setting_input;
 let click_button_1_setting_selected = false;
 let click_button_2_setting_selected = false;
 
-let init_settings = () => {
+const init_settings = () => {
 	trail_setting_checkbox = document.getElementById("trail-setting-checkbox");
 	trail_setting_checkbox.addEventListener("click", (e) => {
 		if (trail_setting_checkbox.checked) {
@@ -63,7 +64,7 @@ let init_settings = () => {
 	update_setting_inputs();
 }
 
-let update_setting_inputs = () => {
+const update_setting_inputs = () => {
 	click_button_1_setting_input.value = click_button_one;
 	click_button_2_setting_input.value = click_button_second;
 }

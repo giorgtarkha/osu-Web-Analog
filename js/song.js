@@ -1,8 +1,8 @@
-let songs_path = "maps/";
-let pause_icon_image_name = "pause.png";
-let play_icon_image_name = "play.png";
-let song_file_name = "song.mp3";
-let song_names = ["Attack On Titan OP1",
+const songs_path = "maps/";
+const pause_icon_image_name = "pause.png";
+const play_icon_image_name = "play.png";
+const song_file_name = "song.mp3";
+const song_names = ["Attack On Titan OP1",
 				  "Naruto Shippuden OP3",
 				  "Hunter X Hunter OP1"];
 let played_songs = [];
@@ -18,7 +18,7 @@ let next_button;
 let previous_button;
 let pause_button;
 				   
-let init_song_player = () => {
+const init_song_player = () => {
 	
 	song_player = document.getElementById("song-player");
 	main_menu_player = document.getElementById("main-menu-player");
@@ -61,25 +61,25 @@ let init_song_player = () => {
 	});
 }
 
-let play_random_song = () => {
+const play_random_song = () => {
 	current_song_index = get_random_song_index();
 	played_songs.push(current_song_index);
 	play_song(song_names[current_song_index]);
 }
 
-let play_next_song = () => {
+const play_next_song = () => {
 	current_song_index = get_next_song_index();
 	played_songs.push(current_song_index);
 	play_song(song_names[current_song_index]);
 }
 
-let play_previous_song = () => {
+const play_previous_song = () => {
 	current_song_index = get_previous_song_index();
 	played_songs.push(current_song_index);
 	play_song(song_names[current_song_index]);
 }
 
-let play_song = (song_name) => {
+const play_song = (song_name) => {
 	pause_button.childNodes[0].src = asset_files_path + pause_icon_image_name;
 	current_song = song_name;
 	song_player.src = songs_path + current_song + "/" + song_file_name;
@@ -91,28 +91,28 @@ let play_song = (song_name) => {
 	});
 }
 
-let get_random_song_index = () => {
+const get_random_song_index = () => {
 	return Math.floor(Math.random() * song_names.length);
 }
 
-let get_next_song_index = () => {
+const get_next_song_index = () => {
 	return current_song_index == song_names.length - 1 ? current_song_index : current_song_index + 1;
 }
 
-let get_previous_song_index = () => {
+const get_previous_song_index = () => {
 	return current_song_index == 0 ? current_song_index : current_song_index - 1;
 }
 
-let reset_played_songs = () => {
+const reset_played_songs = () => {
 	played_songs = [];
 	current_song_pointer = 0;
 }
 
-let start_current_song_over = () => {
+const start_current_song_over = () => {
 	song_player.currentTime = 0;
 }
 
-let stop_playing_songs_with_volume_decrease = () => {
+const stop_playing_songs_with_volume_decrease = () => {
 	object_functions[main_song_player_object_name][song_stopping_volume_function_name] = setInterval(() => {
 		if (song_player.volume <= 0.001) {
 			stop_playing_songs();
@@ -123,25 +123,25 @@ let stop_playing_songs_with_volume_decrease = () => {
 	}, 10);
 }
 
-let stop_playing_songs = () => {
+const stop_playing_songs = () => {
 	song_player.pause();
 	song_player_song_name.innerHTML = "";
 	remove_song_controls();
 }
 
-let remove_song_controls = () => {
+const remove_song_controls = () => {
 	next_button.classList.add(hidden_class_name);
 	previous_button.classList.add(hidden_class_name);
 	pause_button.classList.add(hidden_class_name);
 }
 
-let add_song_controls = () => {
+const add_song_controls = () => {
 	next_button.classList.remove(hidden_class_name);
 	previous_button.classList.remove(hidden_class_name);
 	pause_button.classList.remove(hidden_class_name);
 }
 
-let update_song_volume = (vol) => {
+const update_song_volume = (vol) => {
 	song_volume = vol;
 	song_player.volume = vol;
 }

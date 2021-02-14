@@ -7,7 +7,7 @@ let miss_result;
 let result_retry_button;
 let result_menu_button;
 
-let update_result = () => {
+const update_result = () => {
 	score_result.innerHTML = "Score: " + score;
 	max_combo_result.innerHTML = "Max Combo: " + max_combo;
 	three_hundred_result.innerHTML = "Three Hundreds: " + three_hundred_count;
@@ -16,7 +16,7 @@ let update_result = () => {
 	miss_result.innerHTML = "Misses: " + miss_count;
 }
 
-let init_result = () => {
+const init_result = () => {
 	score_result = document.getElementById("score-result");
 	max_combo_result = document.getElementById("max-combo-result");
 	three_hundred_result = document.getElementById("three-hundred-result");

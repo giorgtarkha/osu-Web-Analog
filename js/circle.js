@@ -1,18 +1,19 @@
+const outline_radius_decrease = 1;
+const opacity_increase = 0.04;
+const opacity_increase_rate = 20;
+const destroy_opacity_decrease = 0.1;
+const destroy_opacity_decrease_rate = 20;
+const destroy_radius_increase = 2;
+
 let radius;
 let outline_radius_addition;
-let outline_radius_decrease = 1;
 let outline_radius_decrease_rate;
-let opacity_increase = 0.04;
-let opacity_increase_rate = 20;
-let destroy_opacity_decrease = 0.1;
-let destroy_opacity_decrease_rate = 20;
-let destroy_radius_increase = 2;
 
-let spawn_circle = (x, y) => {	
+const spawn_circle = (x, y) => {	
 	create_circle_internal(x, y, radius);
 }
 
-let create_circle_internal = (x, y, r) => {	
+const create_circle_internal = (x, y, r) => {	
 	let current_object_id = last_object_id;
 	game_object_functions[current_object_id] = {};
 
@@ -41,7 +42,7 @@ let create_circle_internal = (x, y, r) => {
 	last_object_id++;
 }
 
-let start_outline_function = (circle, outline, id, r) => {
+const start_outline_function = (circle, outline, id, r) => {
 	game_object_functions[id][outline_function_name] = setInterval(() => {
 		let radius_now = parseInt(outline.getAttributeNS(null, 'r'));
 		outline.setAttributeNS(null, 'r', radius_now - outline_radius_decrease);
@@ -55,7 +56,7 @@ let start_outline_function = (circle, outline, id, r) => {
 	}, outline_radius_decrease_rate);
 }
 
-let start_spawn_opacity_function = (circle, outline, id) => {
+const start_spawn_opacity_function = (circle, outline, id) => {
 	game_object_functions[id][spawn_opacity_function_name] = setInterval(() => {
 		let opacity_now_circle = circle.style.opacity;
 		circle.style.opacity = Math.min(1, parseFloat(opacity_now_circle) + opacity_increase);
@@ -68,7 +69,7 @@ let start_spawn_opacity_function = (circle, outline, id) => {
 	}, opacity_increase_rate);
 }
 
-let try_to_destroy_circle = (circle) => {
+const try_to_destroy_circle = (circle) => {
 	let id = parseInt(circle.id.substring(circle.id.indexOf("_") + 1, circle.id.length));
 	
 	if (destroyed_objects.has(id)) {
@@ -105,7 +106,7 @@ let try_to_destroy_circle = (circle) => {
 	}
 }
 
-let destroy_circle_internal = (circle, outline, id, miss) => {
+const destroy_circle_internal = (circle, outline, id, miss) => {
 	if (miss && !destroyed_objects.has(id)) {
 		combo = 0;
 		miss_count++;
@@ -119,7 +120,7 @@ let destroy_circle_internal = (circle, outline, id, miss) => {
 	update_counters();
 }
 
-let start_destroy_circle_function = (circle, outline, id) => {
+const start_destroy_circle_function = (circle, outline, id) => {
 	game_object_functions[id][destroy_function_name] = setInterval(() => {
 		let opacity_now_circle = circle.style.opacity;
 		circle.style.opacity = Math.max(0, parseFloat(opacity_now_circle) - destroy_opacity_decrease);
@@ -136,7 +137,7 @@ let start_destroy_circle_function = (circle, outline, id) => {
 	}, destroy_opacity_decrease_rate);
 }
 
-let shake_circle_internal = (circle, id) => {
+const shake_circle_internal = (circle, id) => {
 	circle.classList.remove(shaky_circle_class_name);
 	circle.classList.add(shaky_circle_class_name);
 	if (game_object_functions[id][shake_function_name] != undefined) {
@@ -146,7 +147,7 @@ let shake_circle_internal = (circle, id) => {
 	game_object_functions[id][shake_function_name] = setTimeout(() => { circle.classList.remove(shaky_circle_class_name); }, 110);
 }
 
-let destroy_existing_circles = () => {
+const destroy_existing_circles = () => {
 	let existing_circles = [...document.getElementsByTagName('circle')];
 	let existing_object_ids = new Set();
 	for (let i = 0; i < existing_circles.length; i++) {
@@ -169,7 +170,7 @@ let destroy_existing_circles = () => {
 	}
 }
 
-let pause_existing_circles = () => {
+const pause_existing_circles = () => {
 	let existing_circles = [...document.getElementsByTagName('circle')];
 	let existing_object_ids = new Set();
 	for (let i = 0; i < existing_circles.length; i++) {
@@ -191,7 +192,7 @@ let pause_existing_circles = () => {
 	}
 }
 
-let continue_existing_circles = () => {
+const continue_existing_circles = () => {
 	let existing_circles = [...document.getElementsByTagName('circle')];
 	let existing_object_ids = new Set();
 	for (let i = 0; i < existing_circles.length; i++) {
