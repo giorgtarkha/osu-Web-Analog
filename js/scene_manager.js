@@ -52,6 +52,7 @@ let load_main_menu_scene = () => {
 	           current_scene == map_choose_scene) {
 		current_scene = main_menu_scene;
 		load_scenes([main_menu_scene]);
+		add_song_controls();
 	}
 }
 
@@ -66,11 +67,13 @@ let load_map_choose_scene = () => {
 	if (current_scene == main_menu_scene) {
 		current_scene = map_choose_scene;
 		load_scenes([map_choose_scene]);
+		remove_song_controls();
 		change_current_map_image();
 	} else if (current_scene == pause_game_scene) {
 		reset_game();	
 		current_scene = map_choose_scene;
 		load_scenes([map_choose_scene]);
+		remove_song_controls();
 		change_current_map_image();
 	}
 }

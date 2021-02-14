@@ -2,9 +2,10 @@ let songs_path = "maps/";
 let pause_icon_image_name = "pause.png";
 let play_icon_image_name = "play.png";
 let song_file_name = "song.mp3";
-let song_names = ["Attack On Titan OP1"];
+let song_names = ["Attack On Titan OP1",
+				  "Naruto Shippuden OP3"];
 let played_songs = [];
-let song_volume = 0.5;
+let song_volume = 0.0;
 let current_song_pointer = 0;
 
 let current_song;	
@@ -53,9 +54,18 @@ let play_random_song = () => {
 	current_song_index = get_random_song_index();
 	played_songs.push(current_song_index);
 	play_song(song_names[current_song_index]);
-	next_button.classList.remove("hidden");
-	previous_button.classList.remove("hidden");
-	pause_button.classList.remove("hidden");
+}
+
+let play_next_song = () => {
+	current_song_index = get_next_song_index();
+	played_songs.push(current_song_index);
+	play_song(song_names[current_song_index]);
+}
+
+let play_previous_song = () => {
+	current_song_index = get_previous_song_index();
+	played_songs.push(current_song_index);
+	play_song(song_names[current_song_index]);
 }
 
 let play_song = (song_name) => {
@@ -72,6 +82,14 @@ let play_song = (song_name) => {
 
 let get_random_song_index = () => {
 	return Math.floor(Math.random() * song_names.length);
+}
+
+let get_next_song_index = () => {
+	return current_song_index == song_names.length - 1 ? current_song_index : current_song_index + 1;
+}
+
+let get_previous_song_index = () => {
+	return current_song_index == 0 ? current_song_index : current_song_index - 1;
 }
 
 let reset_played_songs = () => {
@@ -93,7 +111,17 @@ let stop_playing_songs_with_volume_decrease = () => {
 let stop_playing_songs = () => {
 	song_player.pause();
 	song_player_song_name.innerHTML = "";
+	remove_song_controls();
+}
+
+let remove_song_controls = () => {
 	next_button.classList.add(hidden_class_name);
 	previous_button.classList.add(hidden_class_name);
 	pause_button.classList.add(hidden_class_name);
+}
+
+let add_song_controls = () => {
+	next_button.classList.remove(hidden_class_name);
+	previous_button.classList.remove(hidden_class_name);
+	pause_button.classList.remove(hidden_class_name);
 }

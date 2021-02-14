@@ -58,7 +58,9 @@ window.onload = () => {
 			if (e.key === "Escape") {
 				load_main_menu_scene();
 			} else if (e.key === "ArrowLeft") {
+				go_to_previous_map();
 			} else if (e.key === "ArrowRight") {
+				go_to_next_map();
 			}
 		}
 	});

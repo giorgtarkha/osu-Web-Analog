@@ -8,7 +8,8 @@
 }
 
 #current-map-container {
-	
+	position: absolute;
+	z-index: 10;
 }
 
 #current-map-image-container {
@@ -16,6 +17,7 @@
 	height: 40vw;
 	background-color: red;
 	border-radius: 1vw;
+	z-index: 11;
 	-moz-box-shadow: 0 0 15px #ccc;
 	-webkit-box-shadow: 0 0 15px #ccc;
 	box-shadow: 0 0 1.5vw #ccc;
@@ -29,6 +31,32 @@
 	transform: scale(1.1);
 	transition: all 0.3s;
 	filter: brightness(100%);
+}
+
+#previous-map-container {
+	left: 0.3vw;
+	z-index: 5;
+	position: absolute;
+}
+
+#previous-map-image-container {
+	border-radius: 1vw;
+	width: 40vw;
+	height: 20vw;
+	filter: brightness(50%);
+}
+
+#next-map-container {
+	right: 0.3vw;
+	z-index: 5;
+	position: absolute;
+}
+
+#next-map-image-container {
+	border-radius: 1vw;
+	width: 40vw;
+	height: 20vw;
+	filter: brightness(50%);
 }
 
 #map-choose-go-back-info {
