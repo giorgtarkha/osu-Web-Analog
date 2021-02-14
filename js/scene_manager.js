@@ -81,6 +81,7 @@ let load_map_choose_scene = () => {
 let load_pause_game_scene = () => {
 	if (current_scene == playing_game_scene) {
 		current_scene = pause_game_scene;
+		remove_song_controls();
 	}
 }
 
@@ -88,6 +89,7 @@ let load_start_game_scene = () => {
 	if (current_scene == map_choose_scene) {
 		current_scene = playing_game_scene;
 		load_scenes([playing_game_scene]);
+		init_game();
 	}
 }
 

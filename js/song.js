@@ -3,13 +3,15 @@ let pause_icon_image_name = "pause.png";
 let play_icon_image_name = "play.png";
 let song_file_name = "song.mp3";
 let song_names = ["Attack On Titan OP1",
-				  "Naruto Shippuden OP3"];
+				  "Naruto Shippuden OP3",
+				  "Hunter X Hunter OP1"];
 let played_songs = [];
-let song_volume = 0.0;
+let song_volume = 0.1;
 let current_song_pointer = 0;
 
 let current_song;	
 let current_song_index;
+let main_menu_player;
 let song_player;			
 let song_player_song_name;   
 let next_button;
@@ -17,13 +19,19 @@ let previous_button;
 let pause_button;
 				   
 let init_song_player = () => {
+	
 	song_player = document.getElementById("song-player");
+	main_menu_player = document.getElementById("main-menu-player");
 	next_button = document.getElementById("main-menu-player-next-song-button");
 	previous_button = document.getElementById("main-menu-player-previous-song-button");
 	pause_button = document.getElementById("main-menu-player-pause-song-button");
 	song_player_song_name = document.getElementById("main-menu-player-song-name");
 	song_player.addEventListener("ended", () => {
-		play_random_song();
+		if (current_scene == map_choose_scene) {
+			play_song(current_song);
+		} else {
+			play_random_song();
+		}
 	});
 	next_button.addEventListener("click", () => {
 		current_song_pointer++;
@@ -95,6 +103,10 @@ let get_previous_song_index = () => {
 let reset_played_songs = () => {
 	played_songs = [];
 	current_song_pointer = 0;
+}
+
+let start_current_song_over = () => {
+	song_player.currentTime = 0;
 }
 
 let stop_playing_songs_with_volume_decrease = () => {

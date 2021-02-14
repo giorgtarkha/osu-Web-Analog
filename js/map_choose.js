@@ -8,6 +8,18 @@ let init_map_choose = () => {
 	current_map_image_container = document.getElementById("current-map-image-container");
 	previous_map_image_container = document.getElementById("previous-map-image-container");
 	next_map_image_container = document.getElementById("next-map-image-container");
+	
+	current_map_image_container.addEventListener("click", (e) => {
+		load_start_game_scene();
+	});
+	
+	previous_map_image_container.addEventListener("click", (e) => {
+		go_to_previous_map();
+	});
+	
+	next_map_image_container.addEventListener("click", (e) => {
+		go_to_next_map();
+	});
 }
 
 let change_current_map_image = () => {

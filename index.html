@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="css/main.css"/>
 		<link rel="stylesheet" href="css/settings.css"/>
 		<link rel="stylesheet" href="css/map_choose.css"/>
+		<link rel="stylesheet" href="css/game.css"/>
 		<link rel="stylesheet" href="css/circle.css"/>
 		<link rel="stylesheet" href="css/cursor.css"/>
 		<script src="js/global.js"></script>
@@ -25,40 +26,40 @@
 		<svg id="game-screen" class="hidden"></svg>
 		<div id="initial-screen" class="hidden">
 			<div>
-				<div>Osu Analog</div>
-				<div>Click anywhere to start</div>
+				<div class="non-selectable">Osu Analog</div>
+				<div class="non-selectable">Click anywhere to start</div>
 			</div>
 		</div>
-		<div id="main-menu-player">
-			<div id="main-menu-player-song-name"></div>
-			<div id="main-menu-player-previous-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
-			<div id="main-menu-player-pause-song-button" class="hidden"><img src="assets/pause.png"></img></div>
-			<div id="main-menu-player-next-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
+		<div id="main-menu-player" class="non-selectable">
+			<div id="main-menu-player-song-name" class="non-selectable"></div>
+			<div id="main-menu-player-previous-song-button" class="non-selectable hidden"><img src="assets/fast-forward.png" class="non-selectable"></img></div>
+			<div id="main-menu-player-pause-song-button" class="non-selectable hidden"><img src="assets/pause.png" class="non-selectable"></img></div>
+			<div id="main-menu-player-next-song-button" class="non-selectable hidden"><img src="assets/fast-forward.png" class="non-selectable"></img></div>
 		</div>
 		<div id="main-menu-screen" class="hidden">			
 			<div id="main-menu-buttons-container" align="center">
-				<button id="main-menu-play-button">PLAY</button> 
-				<button id="main-menu-settings-button">SETTINGS</button>
-				<button id="main-menu-exit-button">EXIT</button>
+				<button id="main-menu-play-button" class="non-selectable">PLAY</button> 
+				<button id="main-menu-settings-button" class="non-selectable">SETTINGS</button>
+				<button id="main-menu-exit-button" class="non-selectable">EXIT</button>
 			</div>
 		</div>
 		<div id="settings-screen" class="hidden">
 			<div id="settings-buttons-container" align="center">
 				<div class="checkbox-setting">
-					<span>Cursor Trail</span>
-					<input id="trail-setting-checkbox" type="checkbox"></input>
+					<span class="non-selectable">Cursor Trail</span>
+					<input id="trail-setting-checkbox" type="checkbox" class="non-selectable"></input>
 				</div>
 				<div class="checkbox-setting">
-					<span>Cursor Fixed</span>
-					<input id="cursor-fixed-setting-checkbox" type="checkbox"></input>
+					<span class="non-selectable">Cursor Fixed</span>
+					<input id="cursor-fixed-setting-checkbox" type="checkbox" class="non-selectable"></input>
 				</div>
 				<div class="checkbox-setting">
-					<span>Click Button 1</span>
-					<input id="click-button-1-setting-input" type="text" maxlength="1" readonly></input>
+					<span class="non-selectable">Click Button 1</span>
+					<input id="click-button-1-setting-input" type="text" maxlength="1" class="non-selectable" readonly></input>
 				</div>
 				<div class="checkbox-setting">
-					<span>Click Button 2</span>
-					<input id="click-button-2-setting-input" type="text" maxlength="1" readonly></input>
+					<span class="non-selectable">Click Button 2</span>
+					<input id="click-button-2-setting-input" type="text" maxlength="1" class="non-selectable" readonly></input>
 				</div>
 			</div>
 			<div id="settings-go-back-info">Press Escape To Go Back To Main Menu</div>
@@ -73,7 +74,7 @@
 			<div id="next-map-container">
 				<img id="next-map-image-container"></img>
 			</div>
-			<div id="map-choose-info">Press Left And Right Arrow Keys To Change Map</div>
+			<div id="map-choose-info">Press Left And Right Arrow Keys Or Click Next Maps To Change Map</div>
 			<div id="map-choose-go-back-info">Press Escape To Go Back To Main Menu</div>
 		</div>
 	</body>

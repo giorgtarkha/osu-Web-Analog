@@ -7,13 +7,6 @@
 	align-items: center;
 }
 
-#settings-buttons-container > div {
-	-webkit-user-select: none;     
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
 .checkbox-setting {
 	display: flex;
 	justify-content: center;
@@ -50,10 +43,6 @@
 }
 
 #settings-go-back-info {
-	-webkit-user-select: none;     
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 	position: absolute;
 	bottom: 0.1vw;
 	left: 0.1vw;

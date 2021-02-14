@@ -6,8 +6,11 @@ let miss_point = 5;
 let destroyed_objects = new Set();
 let last_object_id = 0;
 let score = 0;
+let before_start_time = 3000;
+let start_time;
 
 let mouse_x, mouse_y;
+let current_game_data;
 
 let handleClick = (x, y) => {
 	if (!cursor_fixed) {
@@ -38,6 +41,15 @@ let handleClick = (x, y) => {
 		}
 	}
 };
+
+let init_game = () => {
+	start_time = Date.now();
+	song_player.pause();
+	setTimeout(() => {
+		song_player.play();
+		start_current_song_over();
+	}, before_start_time);
+}
 
 let reset_game = () => {
 	last_object_id = 0;
