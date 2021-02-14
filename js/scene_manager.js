@@ -79,6 +79,7 @@ let load_map_choose_scene = () => {
 		remove_song_controls();
 		change_current_map_image();
 		hide_gameplay_ui();
+		song_player.play();
 	} else if (current_scene == game_result_scene) {
 		reset_game();
 		current_scene = map_choose_scene;
@@ -97,17 +98,24 @@ let load_pause_game_scene = () => {
 	}
 }
 
-let load_start_game_scene = () => {
+let load_start_game_scene = (restart = false) => {
 	if (current_scene == map_choose_scene) {
 		current_scene = playing_game_scene;
 		load_scenes([playing_game_scene]);
 		init_game();
 		show_gameplay_ui();
 	} else if (current_scene == pause_game_scene) {
-		current_scene = playing_game_scene;
-		load_scenes([playing_game_scene]);
-		song_player.play();
-		continue_game();
+		if (restart) {
+			reset_game();
+			current_scene = playing_game_scene;
+			load_scenes([playing_game_scene]);
+			init_game();
+		} else {
+			current_scene = playing_game_scene;
+			load_scenes([playing_game_scene]);
+			song_player.play();
+			continue_game();
+		}
 	} else if (current_scene == game_result_scene) {
 		reset_game();
 		current_scene = playing_game_scene;

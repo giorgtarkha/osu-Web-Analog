@@ -37,12 +37,20 @@
 	background-color: #81ff83; 
 }
 
+#pause-restart-game-button {
+	background-color: #5cc6ff;
+}
+
 #exit-game-button {
 	background-color: #ff5f5f;
 }
 
 #continue-game-button:hover {
 	background-color: #72e474; 
+}
+
+#pause-restart-game-button:hover {
+	background-color: #51b1e4;
 }
 
 #exit-game-button:hover {
