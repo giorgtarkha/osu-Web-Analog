@@ -65,10 +65,12 @@ let pause_game = () => {
 		clearTimeout(circle_timeout_functions[i]);
 	}
 	circle_timeout_functions = [];
+	pause_existing_circles();
 }
 
 let continue_game = () => {
 	start_time = Date.now();
+	continue_existing_circles();
 	init_circle_spawns();
 }
 

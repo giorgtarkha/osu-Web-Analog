@@ -29,6 +29,9 @@ let init_song_player = () => {
 	song_player.addEventListener("ended", () => {
 		if (current_scene == map_choose_scene) {
 			play_song(current_song);
+		} else if (current_scene == playing_game_scene) {
+			play_song(current_song);
+			load_game_result_scene();
 		} else {
 			play_random_song();
 		}
