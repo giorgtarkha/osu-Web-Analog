@@ -21,13 +21,13 @@ let create_circle_internal = (x, y, r) => {
 	circle.setAttributeNS(null, 'cx', x);
 	circle.setAttributeNS(null, 'cy', y);
 	circle.setAttributeNS(null, 'r', r);
-	circle.setAttributeNS(null, 'style', 'fill: white; stroke: red; stroke-width: 3px; opacity: 0;');
+	circle.setAttributeNS(null, 'style', 'fill: #454545; stroke: #2196f3; stroke-width: 3px; opacity: 0;');
 	let outline = document.createElementNS(svg_path, "circle");
 	outline.setAttributeNS(null, 'id', circle_outline_object_prefix + "_" + current_object_id);
 	outline.setAttributeNS(null, 'cx', x);
 	outline.setAttributeNS(null, 'cy', y);
 	outline.setAttributeNS(null, 'r', r + outline_radius_addition);
-	outline.setAttributeNS(null, 'style', 'fill: none; stroke: green; stroke-width: 3px; opacity: 0;');
+	outline.setAttributeNS(null, 'style', 'fill: none; stroke: white; stroke-width: 3px; opacity: 0;');
 	
 	start_outline_function(circle, outline, current_object_id, radius);
 	start_spawn_opacity_function(circle, outline, current_object_id);

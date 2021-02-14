@@ -14,9 +14,23 @@ map_data["Attack On Titan OP1"] = {
 }
 
 map_data["Naruto Shippuden OP3"] = {
-	
+	radius: 80,
+	outline_radius_addition: 120,
+	outline_radius_decrease_rate: 12,
+	original_screen_width: 1920,
+	original_screen_height: 1080,
+	flow: [
+		
+	]
 }
 		
 map_data["Hunter X Hunter OP1"] = {
-	
+	radius: 60,
+	outline_radius_addition: 120,
+	outline_radius_decrease_rate: 6,
+	original_screen_width: 1920,
+	original_screen_height: 1080,
+	flow: [
+		
+	]
 }
