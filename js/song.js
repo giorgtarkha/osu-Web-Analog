@@ -2,10 +2,9 @@ let songs_path = "maps/";
 let pause_icon_image_name = "pause.png";
 let play_icon_image_name = "play.png";
 let song_file_name = "song.mp3";
-let song_names = ["ACDC - Back In Black",
-			       "Arctic Monkeys - Knee Socks"];
+let song_names = ["Attack On Titan OP1"];
 let played_songs = [];
-let song_volume = 0.2;
+let song_volume = 0.5;
 let current_song_pointer = 0;
 
 let current_song;	

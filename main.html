@@ -4,6 +4,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet'>
 		<link rel="stylesheet" href="css/main.css"/>
 		<link rel="stylesheet" href="css/settings.css"/>
+		<link rel="stylesheet" href="css/map_choose.css"/>
 		<link rel="stylesheet" href="css/circle.css"/>
 		<link rel="stylesheet" href="css/cursor.css"/>
 		<script src="js/global.js"></script>
@@ -16,6 +17,7 @@
 		<script src="js/audio.js"></script>
 		<script src="js/circle.js"></script>
 		<script src="js/gameplay.js"></script>
+		<script src="js/map_choose.js"></script>
 	</head>
 	<body>
 		<audio id="song-player"></audio>
@@ -59,7 +61,14 @@
 					<input id="click-button-2-setting-input" type="text" maxlength="1" readonly></input>
 				</div>
 			</div>
-			<div id="go-back-info">Press Escape To Go Back To Main Menu</div>
+			<div id="settings-go-back-info">Press Escape To Go Back To Main Menu</div>
+		</div>
+		<div id="map-choose-screen" class="hidden">
+			<div id="current-map-container">
+				<img id="current-map-image-container"></img>
+			</div>
+			<div id="map-choose-info">Press Left And Right Arrow Keys To Change Map</div>
+			<div id="map-choose-go-back-info">Press Escape To Go Back To Main Menu</div>
 		</div>
 	</body>
 </html>

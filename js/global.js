@@ -32,6 +32,9 @@ window.onload = () => {
 	init_main_menu();
 	window.addEventListener("keyup", (e) => {
 		if (current_scene == playing_game_scene) {
+			if (e.key === "Escape") {
+				load_pause_game_scene();
+			}
 			if (e.key == click_button_one || e.key == click_button_second) {			
 				handleClick(mouse_x, mouse_y);
 			}
@@ -50,6 +53,12 @@ window.onload = () => {
 						update_setting_inputs();
 					}
 				}
+			}
+		} else if (current_scene == map_choose_scene) {
+			if (e.key === "Escape") {
+				load_main_menu_scene();
+			} else if (e.key === "ArrowLeft") {
+			} else if (e.key === "ArrowRight") {
 			}
 		}
 	});
@@ -73,6 +82,7 @@ window.onload = () => {
 	init_song_player();
 	load_initial_screen_scene();
 	init_settings();
+	init_map_choose();
 };
 
 let init_object_functions = () => {

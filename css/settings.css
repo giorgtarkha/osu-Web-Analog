@@ -49,10 +49,14 @@
 	text-shadow: 0 0 0 #2196f3;
 }
 
-#go-back-info {
-  position: absolute;
-  bottom: 0.1vw;
-  left: 0.1vw;
-  font-size: 2vw;
-  color: white;
+#settings-go-back-info {
+	-webkit-user-select: none;     
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: absolute;
+	bottom: 0.1vw;
+	left: 0.1vw;
+	font-size: 1.2vw;
+	color: white;
 }

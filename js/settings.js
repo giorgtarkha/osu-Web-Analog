@@ -52,8 +52,6 @@ let init_settings = () => {
 }
 
 let update_setting_inputs = () => {
-	console.log(click_button_one);
-	console.log(click_button_second);
 	click_button_1_setting_input.value = click_button_one;
 	click_button_2_setting_input.value = click_button_second;
 }

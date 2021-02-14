@@ -12,6 +12,7 @@ let game_screen;
 let main_menu_screen;
 let initial_screen;
 let settings_screen;
+let map_choose_screen;
 let scenes;
 
 let load_initial_screen_scene = () => {
@@ -47,7 +48,8 @@ let load_main_menu_scene = () => {
 			initial_screen.classList.add(hidden_class_name);
 			initial_screen.classList.remove("initial_screen_hiding");
 		}, 450);
-	} else if (current_scene == settings_scene) {
+	} else if (current_scene == settings_scene ||
+	           current_scene == map_choose_scene) {
 		current_scene = main_menu_scene;
 		load_scenes([main_menu_scene]);
 	}
@@ -60,15 +62,29 @@ let load_settings_scene = () => {
 	}
 }
 
+let load_map_choose_scene = () => {
+	if (current_scene == main_menu_scene) {
+		current_scene = map_choose_scene;
+		load_scenes([map_choose_scene]);
+		change_current_map_image();
+	} else if (current_scene == pause_game_scene) {
+		reset_game();	
+		current_scene = map_choose_scene;
+		load_scenes([map_choose_scene]);
+		change_current_map_image();
+	}
+}
+
 let load_pause_game_scene = () => {
 	if (current_scene == playing_game_scene) {
-		
+		current_scene = pause_game_scene;
 	}
 }
 
 let load_start_game_scene = () => {
 	if (current_scene == map_choose_scene) {
-		game-screen.classList.remove(hidden_class_name);
+		current_scene = playing_game_scene;
+		load_scenes([playing_game_scene]);
 	}
 }
 
@@ -86,6 +102,7 @@ let init_scenes = () => {
 	main_menu_screen = document.getElementById("main-menu-screen");
 	game_screen = document.getElementById("game-screen");
 	settings_screen = document.getElementById("settings-screen");
+	map_choose_screen = document.getElementById("map-choose-screen");
 	initial_screen.addEventListener("click", () => {
 		load_main_menu_scene();
 	});
@@ -93,6 +110,7 @@ let init_scenes = () => {
 		settings: settings_screen,
 		initial: initial_screen,
 		main_menu : main_menu_screen,
-		playing_game : game_screen
+		playing_game : game_screen,
+		map_choose : map_choose_screen
 	};
 }
