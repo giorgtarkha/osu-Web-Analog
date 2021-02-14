@@ -10,6 +10,7 @@ let cursor_fixed_setting_checkbox;
 let click_button_1_setting_input;
 let click_button_2_setting_input;
 let volume_setting_input;
+let song_volume_setting_input;
 
 let click_button_1_setting_selected = false;
 let click_button_2_setting_selected = false;
@@ -47,6 +48,11 @@ let init_settings = () => {
 	});
 	click_button_2_setting_input.addEventListener("focusout", (e) => {
 		click_button_2_setting_selected = false;
+	});
+	
+	song_volume_setting_input = document.getElementById("song-volume-setting-input");
+	song_volume_setting_input.addEventListener("input", (e) => {
+		update_song_volume(song_volume_setting_input.value / 100);
 	});
 	
 	volume_setting_input = document.getElementById("volume-setting-input");

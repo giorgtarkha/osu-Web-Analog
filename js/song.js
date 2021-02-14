@@ -141,7 +141,7 @@ let add_song_controls = () => {
 	pause_button.classList.remove(hidden_class_name);
 }
 
-let update_volume = (vol) => {
+let update_song_volume = (vol) => {
 	song_volume = vol;
 	song_player.volume = vol;
 }

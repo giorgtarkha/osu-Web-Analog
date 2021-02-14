@@ -7,13 +7,14 @@ let destroyed_objects = new Set();
 let last_object_id = 0;
 let score = 0;
 let combo = 0;
+let max_combo = 0;
 let miss_count = 0;
 let three_hundred_count = 0;
 let one_hundred_count = 0;
 let fifty_count = 0;
-let before_start_time = 3000;
-let start_time;
-let time_passed;
+let before_start_time = 1000;
+let start_time = 0;
+let time_passed = 0;
 
 let mouse_x, mouse_y;
 let diff_w, diff_h;
@@ -59,6 +60,7 @@ let handleClick = (x, y) => {
 					fifty_count++;
 				}
 				combo++;
+				max_combo = Math.max(max_combo, combo);
 				score += response.score * combo;
 			} else if (response.miss) {
 				combo = 0;
@@ -112,6 +114,14 @@ let init_circle_spawns = () => {
 let reset_game = () => {
 	last_object_id = 0;
 	score = 0;
+	combo = 0;
+	max_combo = 0;
+	three_hundred_count = 0;
+	one_hundred_count = 0;
+	fifty_count = 0;
+	miss_count = 0;
+	start_time = 0;
+	time_passed = 0;
 	game_object_functions = {};
 	destroyed_objects = new Set();
 };

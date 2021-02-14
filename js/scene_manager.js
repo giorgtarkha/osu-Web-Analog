@@ -111,6 +111,7 @@ let load_game_result_scene = () => {
 		current_scene = game_result_scene;
 		load_scenes([game_result_scene]);
 		hide_gameplay_ui();
+		update_result();
 	}
 }
 

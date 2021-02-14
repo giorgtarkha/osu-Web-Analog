@@ -22,6 +22,7 @@
 		<script src="js/gameplay.js"></script>
 		<script src="js/map_choose.js"></script>
 		<script src="js/pause.js"></script>
+		<script src="js/game_result.js"></script>
 		<script src="maps/map_data.js"></script>
 	</head>
 	<body>
@@ -38,6 +39,15 @@
 			</div>
 		</div>
 		<div id="game-result-screen" class="hidden">
+			<div id="result-container">
+				<div id="max-combo-result" class="non-selectable"></div>
+				<div id="three-hundred-result" class="non-selectable"></div>
+				<div id="one-hundred-result" class="non-selectable"></div>
+				<div id="fifty-result" class="non-selectable"></div>
+				<div id="miss-result" class="non-selectable"></div>
+			</div>
+			<div id="result-buttons-container">
+			</div>
 		</div>
 		<div id="initial-screen" class="hidden">
 			<div>
@@ -77,8 +87,12 @@
 					<input id="click-button-2-setting-input" type="text" maxlength="1" class="non-selectable" readonly></input>
 				</div>
 				<div class="setting">
-					<span class="non-selectable">Volume</span>
-					<input id="volume-setting-input" type="range" min="1" max="100" value="50"></input>
+					<span class="non-selectable">Song Volume</span>
+					<input id="song-volume-setting-input" type="range" min="0" max="100" value="50"></input>
+				</div>
+				<div class="setting">
+					<span class="non-selectable">Game Volume</span>
+					<input id="volume-setting-input" type="range" min="0" max="100" value="50"></input>
 				</div>
 			</div>
 			<div id="settings-go-back-info">Press Escape To Go Back To Main Menu</div>

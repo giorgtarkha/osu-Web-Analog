@@ -93,6 +93,7 @@ window.onload = () => {
 	init_map_choose();
 	init_pause();
 	init_gameplay();
+	init_result();
 };
 
 let init_object_functions = () => {
