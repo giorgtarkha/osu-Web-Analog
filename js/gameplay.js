@@ -43,12 +43,25 @@ let handleClick = (x, y) => {
 };
 
 let init_game = () => {
-	start_time = Date.now();
 	song_player.pause();
+	radius = map_data[current_song].radius;
+	outline_radius_addition = map_data[current_song].outline_radius_addition;
+	outline_radius_decrease_rate = map_data[current_song].outline_radius_decrease_rate;
 	setTimeout(() => {
 		song_player.play();
 		start_current_song_over();
+		init_circle_spawns();
 	}, before_start_time);
+}
+
+let init_circle_spawns = () => {
+	let data = map_data[current_song].flow;
+	for (let i = 0; i < data.length; i++) {
+		console.log(before_start_time + data[i].time);
+		setTimeout(() => {
+			spawn_circle(data[i].x, data[i].y);
+		}, before_start_time + data[i].time)
+	}
 }
 
 let reset_game = () => {
