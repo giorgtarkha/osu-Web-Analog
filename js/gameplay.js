@@ -112,6 +112,7 @@ let init_circle_spawns = () => {
 }
 
 let reset_game = () => {
+	destroy_existing_circles();
 	last_object_id = 0;
 	score = 0;
 	combo = 0;

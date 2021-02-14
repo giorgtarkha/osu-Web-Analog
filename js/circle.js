@@ -146,6 +146,29 @@ let shake_circle_internal = (circle, id) => {
 	game_object_functions[id][shake_function_name] = setTimeout(() => { circle.classList.remove(shaky_circle_class_name); }, 110);
 }
 
+let destroy_existing_circles = () => {
+	let existing_circles = [...document.getElementsByTagName('circle')];
+	let existing_object_ids = new Set();
+	for (let i = 0; i < existing_circles.length; i++) {
+		existing_circles[i].remove();
+		existing_object_ids.add(existing_circles[i].id.substring(existing_circles[i].id.indexOf('_') + 1));
+	}
+	for (let existing_object_id of existing_object_ids) {
+		if (game_object_functions[existing_object_id][destroy_function_name] != undefined) {
+			clearInterval(game_object_functions[existing_object_id][destroy_function_name]);
+			game_object_functions[existing_object_id][destroy_function_name] = undefined;
+		}
+		if (game_object_functions[existing_object_id][outline_function_name] != undefined) {
+			clearInterval(game_object_functions[existing_object_id][outline_function_name]);
+			game_object_functions[existing_object_id][outline_function_name] = undefined;
+		}
+		if (game_object_functions[existing_object_id][spawn_opacity_function_name] != undefined) {
+			clearInterval(game_object_functions[existing_object_id][spawn_opacity_function_name]);
+			game_object_functions[existing_object_id][spawn_opacity_function_name] = undefined;
+		}
+	}
+}
+
 let pause_existing_circles = () => {
 	let existing_circles = [...document.getElementsByTagName('circle')];
 	let existing_object_ids = new Set();
