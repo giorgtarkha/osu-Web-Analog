@@ -46,8 +46,11 @@ let start_outline_function = (circle, outline, id, r) => {
 		let radius_now = parseInt(outline.getAttributeNS(null, 'r'));
 		outline.setAttributeNS(null, 'r', radius_now - outline_radius_decrease);
 		if (radius_now < r - miss_point) {
-			destroy_circle_internal(circle, outline, id, true);
+			if (!destroyed_objects.has(id)) {
+				destroy_circle_internal(circle, outline, id, true);
+			}
 			clearInterval(game_object_functions[id][outline_function_name]);
+			delete game_object_functions[id][outline_function_name];
 		}
 	}, outline_radius_decrease_rate);
 }
@@ -60,6 +63,7 @@ let start_spawn_opacity_function = (circle, outline, id) => {
 		outline.style.opacity = Math.min(1, parseFloat(opacity_now_outline) + opacity_increase);
 		if (circle.style.opacity == 1 && outline.style.opacity == 1) {
 			clearInterval(game_object_functions[id][spawn_opacity_function_name]);
+			delete game_object_functions[id][spawn_opacity_function_name];
 		}
 	}, opacity_increase_rate);
 }
@@ -123,10 +127,11 @@ let start_destroy_circle_function = (circle, outline, id) => {
 		outline.style.opacity = Math.max(0, parseFloat(opacity_now_outline) - destroy_opacity_decrease);
 		let radius_now_circle = parseInt(circle.getAttributeNS(null, 'r'));
 		circle.setAttributeNS(null, 'r', radius_now_circle + destroy_radius_increase);
-		if (circle.style.opacity == 0 && outline.style.opacity == 0) {
+		if (circle.style.opacity <= 0 && outline.style.opacity <= 0) {
 			circle.remove();
 			outline.remove();
 			clearInterval(game_object_functions[id][destroy_function_name]);
+			delete game_object_functions[id][destroy_function_name];
 		}
 	}, destroy_opacity_decrease_rate);
 }
@@ -136,6 +141,7 @@ let shake_circle_internal = (circle, id) => {
 	circle.classList.add(shaky_circle_class_name);
 	if (game_object_functions[id][shake_function_name] != undefined) {
 		clearTimeout(game_object_functions[id][shake_function_name]);
+		delete game_object_functions[id][shake_function_name];
 	}
 	game_object_functions[id][shake_function_name] = setTimeout(() => { circle.classList.remove(shaky_circle_class_name); }, 110);
 }

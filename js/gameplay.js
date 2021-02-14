@@ -124,6 +124,7 @@ let reset_game = () => {
 	time_passed = 0;
 	game_object_functions = {};
 	destroyed_objects = new Set();
+	update_counters();
 };
 
 let update_combo_counter = () => {

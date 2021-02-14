@@ -18,7 +18,7 @@
 	display: inline-block;
 	color: white;
 	font-weight: 600;
-	font-size: 4vw;
+	font-size: 3vw;
 }
 
 .setting > input[type=checkbox] {
@@ -46,7 +46,7 @@
 	display: inline-block;
 	margin-left: 40px;
 	-webkit-appearance: none;
-	width: 50%;
+	width: 40%;
 	height: 25px;
 	background: #454545;
 	outline: none;
