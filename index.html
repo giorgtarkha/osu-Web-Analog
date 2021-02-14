@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="css/game.css"/>
 		<link rel="stylesheet" href="css/circle.css"/>
 		<link rel="stylesheet" href="css/cursor.css"/>
+		<link rel="stylesheet" href="css/pause.css"/>
 		<script src="js/global.js"></script>
 		<script src="js/scene_manager.js"></script>
 		<script src="js/main_menu.js"></script>
@@ -19,12 +20,19 @@
 		<script src="js/circle.js"></script>
 		<script src="js/gameplay.js"></script>
 		<script src="js/map_choose.js"></script>
+		<script src="js/pause.js"></script>
 		<script src="maps/map_data.js"></script>
 	</head>
 	<body>
 		<audio id="song-player"></audio>
 		<img id="cursor"></img>
 		<svg id="game-screen" class="hidden"></svg>
+		<div id="pause-game-screen" class="hidden">
+			<div id="pause-buttons-container" align="center">
+				<button id="continue-game-button" class="non-selectable">CONTINUE</button>
+				<button id="exit-game-button" class="non-selectable">EXIT</button>
+			</div>
+		</div>
 		<div id="initial-screen" class="hidden">
 			<div>
 				<div class="non-selectable">Osu Analog</div>

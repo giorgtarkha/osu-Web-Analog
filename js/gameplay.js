@@ -8,9 +8,12 @@ let last_object_id = 0;
 let score = 0;
 let before_start_time = 3000;
 let start_time;
+let time_passed;
 
 let mouse_x, mouse_y;
 let current_game_data;
+
+let circle_timeout_functions = [];
 
 let handleClick = (x, y) => {
 	if (!cursor_fixed) {
@@ -47,20 +50,36 @@ let init_game = () => {
 	radius = map_data[current_song].radius;
 	outline_radius_addition = map_data[current_song].outline_radius_addition;
 	outline_radius_decrease_rate = map_data[current_song].outline_radius_decrease_rate;
-	setTimeout(() => {
+	circle_timeout_functions.push(setTimeout(() => {
+		start_time = Date.now();
+		time_passed = 0;
 		song_player.play();
 		start_current_song_over();
 		init_circle_spawns();
-	}, before_start_time);
+	}, before_start_time));
+}
+
+let pause_game = () => {
+	time_passed += Date.now() - start_time;
+	for (let i = 0; i < circle_timeout_functions.length; i++) {
+		clearTimeout(circle_timeout_functions[i]);
+	}
+	circle_timeout_functions = [];
+}
+
+let continue_game = () => {
+	start_time = Date.now();
+	init_circle_spawns();
 }
 
 let init_circle_spawns = () => {
 	let data = map_data[current_song].flow;
 	for (let i = 0; i < data.length; i++) {
-		console.log(before_start_time + data[i].time);
-		setTimeout(() => {
-			spawn_circle(data[i].x, data[i].y);
-		}, before_start_time + data[i].time)
+		if (data[i].time >= time_passed) {
+			circle_timeout_functions.push(setTimeout(() => {
+				spawn_circle(data[i].x, data[i].y);
+			}, data[i].time - time_passed));
+		}
 	}
 }
 

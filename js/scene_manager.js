@@ -13,6 +13,8 @@ let main_menu_screen;
 let initial_screen;
 let settings_screen;
 let map_choose_screen;
+let pause_game_screen;
+
 let scenes;
 
 let load_initial_screen_scene = () => {
@@ -81,7 +83,10 @@ let load_map_choose_scene = () => {
 let load_pause_game_scene = () => {
 	if (current_scene == playing_game_scene) {
 		current_scene = pause_game_scene;
+		load_scenes([playing_game_scene, pause_game_scene]);
 		remove_song_controls();
+		pause_game();
+		song_player.pause();
 	}
 }
 
@@ -90,6 +95,11 @@ let load_start_game_scene = () => {
 		current_scene = playing_game_scene;
 		load_scenes([playing_game_scene]);
 		init_game();
+	} else if (current_scene == pause_game_scene) {
+		current_scene = playing_game_scene;
+		load_scenes([playing_game_scene]);
+		song_player.play();
+		continue_game();
 	}
 }
 
@@ -108,6 +118,7 @@ let init_scenes = () => {
 	game_screen = document.getElementById("game-screen");
 	settings_screen = document.getElementById("settings-screen");
 	map_choose_screen = document.getElementById("map-choose-screen");
+	pause_game_screen = document.getElementById("pause-game-screen");
 	initial_screen.addEventListener("click", () => {
 		load_main_menu_scene();
 	});
@@ -116,6 +127,7 @@ let init_scenes = () => {
 		initial: initial_screen,
 		main_menu : main_menu_screen,
 		playing_game : game_screen,
-		map_choose : map_choose_screen
+		map_choose : map_choose_screen,
+		pause_game : pause_game_screen
 	};
 }

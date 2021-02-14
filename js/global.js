@@ -85,6 +85,7 @@ window.onload = () => {
 	load_initial_screen_scene();
 	init_settings();
 	init_map_choose();
+	init_pause();
 };
 
 let init_object_functions = () => {
