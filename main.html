@@ -3,6 +3,7 @@
 		<title>osu! analog</title>
 		<link href='https://fonts.googleapis.com/css?family=Alatsi' rel='stylesheet'>
 		<link rel="stylesheet" href="css/main.css"/>
+		<link rel="stylesheet" href="css/settings.css"/>
 		<link rel="stylesheet" href="css/circle.css"/>
 		<link rel="stylesheet" href="css/cursor.css"/>
 		<script src="js/global.js"></script>
@@ -26,18 +27,39 @@
 				<div>Click anywhere to start</div>
 			</div>
 		</div>
-		<div id="main-menu-screen" class="hidden">
-			<div id="main-menu-player">
-				<div id="main-menu-player-song-name"></div>
-				<div id="main-menu-player-previous-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
-				<div id="main-menu-player-pause-song-button" class="hidden"><img src="assets/pause.png"></img></div>
-				<div id="main-menu-player-next-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
-			</div>
+		<div id="main-menu-player">
+			<div id="main-menu-player-song-name"></div>
+			<div id="main-menu-player-previous-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
+			<div id="main-menu-player-pause-song-button" class="hidden"><img src="assets/pause.png"></img></div>
+			<div id="main-menu-player-next-song-button" class="hidden"><img src="assets/fast-forward.png"></img></div>
+		</div>
+		<div id="main-menu-screen" class="hidden">			
 			<div id="main-menu-buttons-container" align="center">
 				<button id="main-menu-play-button">PLAY</button> 
 				<button id="main-menu-settings-button">SETTINGS</button>
 				<button id="main-menu-exit-button">EXIT</button>
 			</div>
+		</div>
+		<div id="settings-screen" class="hidden">
+			<div id="settings-buttons-container" align="center">
+				<div class="checkbox-setting">
+					<span>Cursor Trail</span>
+					<input id="trail-setting-checkbox" type="checkbox"></input>
+				</div>
+				<div class="checkbox-setting">
+					<span>Cursor Fixed</span>
+					<input id="cursor-fixed-setting-checkbox" type="checkbox"></input>
+				</div>
+				<div class="checkbox-setting">
+					<span>Click Button 1</span>
+					<input id="click-button-1-setting-input" type="text" maxlength="1" readonly></input>
+				</div>
+				<div class="checkbox-setting">
+					<span>Click Button 2</span>
+					<input id="click-button-2-setting-input" type="text" maxlength="1" readonly></input>
+				</div>
+			</div>
+			<div id="go-back-info">Press Escape To Go Back To Main Menu</div>
 		</div>
 	</body>
 </html>

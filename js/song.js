@@ -60,6 +60,7 @@ let play_random_song = () => {
 }
 
 let play_song = (song_name) => {
+	pause_button.childNodes[0].src = asset_files_path + pause_icon_image_name;
 	current_song = song_name;
 	song_player.src = songs_path + current_song + "/" + song_file_name;
 	song_player.volume = song_volume;

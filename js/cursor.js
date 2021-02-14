@@ -23,6 +23,11 @@ let update_cursor = () => {
 	cursor.style.top = real_position_y;
 	if (cursor_has_trail && object_functions[cursor_object_name][cursor_trail_animation_function_name] == undefined) {
 		start_trail_animation();
+	} else if (!cursor_has_trail && object_functions[cursor_object_name][cursor_trail_animation_function_name] != undefined) {
+		clearInterval(object_functions[cursor_object_name][cursor_trail_animation_function_name]);
+		object_functions[cursor_object_name][cursor_trail_animation_function_name] = undefined;
+		trail_particles = [];
+		document.querySelectorAll('.' + cursor_particle_class_name).forEach(e => e.remove());
 	}
 };
 
