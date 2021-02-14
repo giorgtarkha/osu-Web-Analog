@@ -48,6 +48,7 @@ const load_main_menu_scene = () => {
 		initial_screen.classList.add("initial_screen_hiding");
 		setTimeout(() => {
 			play_random_song();
+			add_song_controls();
 			initial_screen.classList.add(hidden_class_name);
 			initial_screen.classList.remove("initial_screen_hiding");
 		}, 450);
@@ -71,6 +72,8 @@ const load_map_choose_scene = () => {
 		current_scene = map_choose_scene;
 		load_scenes([map_choose_scene]);
 		remove_song_controls();
+		song_player.play();
+		update_song_player_state();
 		change_current_map_image();
 	} else if (current_scene == pause_game_scene) {
 		reset_game();	

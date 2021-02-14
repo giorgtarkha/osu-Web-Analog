@@ -86,7 +86,7 @@ const play_song = (song_name) => {
 	song_player.volume = song_volume;
 	song_player_song_name.innerHTML = current_song;
 	song_player.addEventListener('loadedmetadata', () => {
-		song_player.currentTime = Math.floor(song_player.duration / 2);
+		song_player.currentTime = Math.floor(Math.random() * song_player.duration);
 		song_player.play();
 	});
 }
@@ -139,6 +139,14 @@ const add_song_controls = () => {
 	next_button.classList.remove(hidden_class_name);
 	previous_button.classList.remove(hidden_class_name);
 	pause_button.classList.remove(hidden_class_name);
+}
+
+const update_song_player_state = () => {
+	if (song_player.paused) {
+		pause_button.childNodes[0].src = asset_files_path + play_icon_image_name;
+	} else {
+		pause_button.childNodes[0].src = asset_files_path + pause_icon_image_name;
+	}
 }
 
 const update_song_volume = (vol) => {

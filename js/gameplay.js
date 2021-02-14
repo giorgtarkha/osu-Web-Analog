@@ -4,7 +4,6 @@ const hundred_click_point = 10;
 const three_hundred_click_point = 0;
 const miss_point = 5;
 const before_start_time = 1000;
-const destroyed_objects = new Set();
 
 let last_object_id = 0;
 let score = 0;
@@ -20,8 +19,10 @@ let time_passed = 0;
 let mouse_x, mouse_y;
 let diff_w, diff_h;
 let current_game_data;
+let destroyed_objects = new Set();
 
 let circle_timeout_functions = [];
+let end_condition_function;
 
 let combo_counter;
 let score_counter;
@@ -83,6 +84,13 @@ const init_game = () => {
 		song_player.play();
 		start_current_song_over();
 		init_circle_spawns();
+		end_condition_function = setInterval(() => {
+			if (should_end()) {
+				load_game_result_scene();
+				clearInterval(end_condition_function);
+				end_condition_function = undefined;
+			}
+		}, 8000); 
 	}, before_start_time));
 }
 
@@ -113,6 +121,8 @@ const init_circle_spawns = () => {
 }
 
 const reset_game = () => {
+	clearInterval(end_condition_function);
+	end_condition_function = undefined;
 	destroy_existing_circles();
 	last_object_id = 0;
 	score = 0;
@@ -168,4 +178,11 @@ const update_window_size_diff = () => {
 	diff_h = current_height / original_height;
 	radius = map_data[current_song].radius * (diff_w + diff_h) / 2;
 	outline_radius_addition = map_data[current_song].outline_radius_addition * (diff_w + diff_h) / 2;
+}
+
+const should_end = () => {
+	if (miss_count + three_hundred_count + one_hundred_count + fifty_count >= map_data[current_song].flow.length) {
+		return true;
+	}
+	return false;
 }
