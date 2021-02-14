@@ -9,6 +9,7 @@ let trail_setting_checkbox;
 let cursor_fixed_setting_checkbox;
 let click_button_1_setting_input;
 let click_button_2_setting_input;
+let volume_setting_input;
 
 let click_button_1_setting_selected = false;
 let click_button_2_setting_selected = false;
@@ -46,6 +47,11 @@ let init_settings = () => {
 	});
 	click_button_2_setting_input.addEventListener("focusout", (e) => {
 		click_button_2_setting_selected = false;
+	});
+	
+	volume_setting_input = document.getElementById("volume-setting-input");
+	volume_setting_input.addEventListener("input", (e) => {
+		update_volume(volume_setting_input.value / 100);
 	});
 	
 	update_setting_inputs();

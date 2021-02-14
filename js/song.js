@@ -6,7 +6,7 @@ let song_names = ["Attack On Titan OP1",
 				  "Naruto Shippuden OP3",
 				  "Hunter X Hunter OP1"];
 let played_songs = [];
-let song_volume = 0.1;
+let song_volume = 0.5;
 let current_song_pointer = 0;
 
 let current_song;	
@@ -139,4 +139,9 @@ let add_song_controls = () => {
 	next_button.classList.remove(hidden_class_name);
 	previous_button.classList.remove(hidden_class_name);
 	pause_button.classList.remove(hidden_class_name);
+}
+
+let update_volume = (vol) => {
+	song_volume = vol;
+	song_player.volume = vol;
 }

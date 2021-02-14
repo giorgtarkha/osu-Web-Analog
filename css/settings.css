@@ -7,21 +7,21 @@
 	align-items: center;
 }
 
-.checkbox-setting {
+.setting {
 	display: flex;
 	justify-content: center;
 	align-items: center; 
 	margin-top: 20px;
 }
 
-.checkbox-setting > span { 
+.setting > span { 
 	display: inline-block;
 	color: white;
 	font-weight: 600;
 	font-size: 4vw;
 }
 
-.checkbox-setting > input[type=checkbox] {
+.setting > input[type=checkbox] {
 	display: inline-block;
 	-ms-transform: scale(3);
 	-moz-transform: scale(3);
@@ -31,7 +31,7 @@
 	margin-left: 40px;
 }
 
-.checkbox-setting > input[type=text] {
+.setting > input[type=text] {
 	display: inline-block;
 	margin-left: 40px;
 	width: 60px;
@@ -40,6 +40,42 @@
 	border-radius: 0.5vw;
 	color: transparent;
 	text-shadow: 0 0 0 #2196f3;
+}
+
+.setting > input[type=range] {
+	display: inline-block;
+	margin-left: 40px;
+	-webkit-appearance: none;
+	width: 50%;
+	height: 25px;
+	background: #454545;
+	outline: none;
+	opacity: 0.7;
+	border-radius: 0.5vw;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.setting > input[type=range]:hover {
+	pointer: none;
+}
+
+.setting > input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 0.5vw;
+	background: #2196f3;
+	cursor: none;
+}
+
+.setting > input[type=range]::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 0.5vw;
+	background: #2196f3;
+	cursor: none;
 }
 
 #settings-go-back-info {

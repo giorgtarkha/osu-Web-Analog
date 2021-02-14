@@ -108,7 +108,7 @@ let load_start_game_scene = () => {
 
 let load_game_result_scene = () => {
 	if (current_scene == playing_game_scene) {
-		current_scene = game_result_scene();
+		current_scene = game_result_scene;
 		load_scenes([game_result_scene]);
 		hide_gameplay_ui();
 	}

@@ -121,7 +121,7 @@ let update_combo_counter = () => {
 }
 
 let update_score_counter = () => {
-	score_counter.innerHTML = score;
+	score_counter.innerHTML = "Score: " + score;
 }
 
 let update_counters = () => {
@@ -155,5 +155,4 @@ let update_window_size_diff = () => {
 	diff_h = current_height / original_height;
 	radius = map_data[current_song].radius * (diff_w + diff_h) / 2;
 	outline_radius_addition = map_data[current_song].outline_radius_addition * (diff_w + diff_h) / 2;
-	
 }
