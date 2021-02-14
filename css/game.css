@@ -4,3 +4,21 @@
 	background-color: black;
 	z-index: 0;
 }
+
+#combo-counter {
+	position: absolute;
+	left: 0.5vw;
+	bottom: 0.5vw;
+	z-index: 1;
+	color: white;
+	font-size: 2vw;
+}
+
+#score-counter {
+	position: absolute;
+	top: 0.5vw;
+	right: 0.5vw;
+	z-index: 1;
+	color: white;
+	font-size: 2vw;
+}

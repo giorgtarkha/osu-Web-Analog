@@ -102,15 +102,17 @@ let try_to_destroy_circle = (circle) => {
 }
 
 let destroy_circle_internal = (circle, outline, id, miss) => {
-	if (miss) {
-		
-	} else {
+	if (miss && !destroyed_objects.has(id)) {
+		combo = 0;
+		miss_count++;
+	} else if (!destroyed_objects.has(id)) {
 		successful_click_audio.pause();
 		successful_click_audio.currentTime = 0;
 		successful_click_audio.play();
 	}
 	start_destroy_circle_function(circle, outline, id);
 	destroyed_objects.add(id);
+	update_counters();
 }
 
 let start_destroy_circle_function = (circle, outline, id) => {

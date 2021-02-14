@@ -3,6 +3,8 @@ map_data["Attack On Titan OP1"] = {
 	radius: 70,
 	outline_radius_addition: 110,
 	outline_radius_decrease_rate: 8,
+	original_screen_width: 1920,
+	original_screen_height: 1080,
 	flow: [
 		{ time : 500, x : 500, y : 200},
 		{ time : 900, x : 1200, y : 800 },

@@ -79,6 +79,12 @@ window.onload = () => {
 		}
 		e.preventDefault();
 	});
+	window.addEventListener("resize", (e) => {
+		if (current_scene == playing_game_scene || current_scene == pause_game_scene) {
+			update_window_size_diff();
+		}
+	});
+	
 	init_audio();
 	init_cursor();
 	init_song_player();
@@ -86,6 +92,7 @@ window.onload = () => {
 	init_settings();
 	init_map_choose();
 	init_pause();
+	init_gameplay();
 };
 
 let init_object_functions = () => {

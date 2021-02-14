@@ -78,6 +78,7 @@ let load_map_choose_scene = () => {
 		load_scenes([map_choose_scene]);
 		remove_song_controls();
 		change_current_map_image();
+		hide_gameplay_ui();
 	}
 }
 
@@ -96,6 +97,7 @@ let load_start_game_scene = () => {
 		current_scene = playing_game_scene;
 		load_scenes([playing_game_scene]);
 		init_game();
+		show_gameplay_ui();
 	} else if (current_scene == pause_game_scene) {
 		current_scene = playing_game_scene;
 		load_scenes([playing_game_scene]);
@@ -108,6 +110,7 @@ let load_game_result_scene = () => {
 	if (current_scene == playing_game_scene) {
 		current_scene = game_result_scene();
 		load_scenes([game_result_scene]);
+		hide_gameplay_ui();
 	}
 }
 
